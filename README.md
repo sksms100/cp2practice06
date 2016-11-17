@@ -1,1 +1,2 @@
 cp2practice06
+modified README
