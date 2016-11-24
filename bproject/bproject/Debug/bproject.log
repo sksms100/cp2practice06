@@ -1,7 +1,2 @@
-﻿  MiniGame.cpp
-c:\users\konkuk\documents\visual studio 2015\projects\bproject\bproject\minigame.cpp(14): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-  Main.cpp
-c:\users\konkuk\documents\visual studio 2015\projects\bproject\bproject\minigame.cpp(14): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-  코드를 생성하고 있습니다...
-  bproject.vcxproj -> c:\users\konkuk\documents\visual studio 2015\Projects\bproject\Debug\bproject.exe
-  bproject.vcxproj -> c:\users\konkuk\documents\visual studio 2015\Projects\bproject\Debug\bproject.pdb (Full PDB)
+﻿  bproject.vcxproj -> C:\Users\KONKUK\Documents\byhcp\cp2practice06\bproject\Debug\bproject.exe
+  bproject.vcxproj -> C:\Users\KONKUK\Documents\byhcp\cp2practice06\bproject\Debug\bproject.pdb (Full PDB)

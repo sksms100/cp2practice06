@@ -1,7 +1,12 @@
-#include <process.h>
+#pragma once
+/* chpater 10
 #include <iostream>
+#include <process.h>
 #include <windows.h>
 #include "MiniGame.cpp"
+*/
+
+#include "Frame.h"
 using namespace std;
 
 /*
@@ -42,7 +47,7 @@ unsigned int __stdcall keyEvent(void*)
 }
 */
 
-
+/* MiniGame
 Game* game = new Game();
 unsigned int __stdcall mythread(void*)
 {
@@ -79,4 +84,18 @@ int main()
 
 	CloseHandle(handleA);
 	CloseHandle(handleB);
+}
+*/
+
+void main() {
+	try {
+		Frame *f1 = new Frame;
+		Frame *f2 = new Frame[10];
+
+		delete f1;
+		delete[] f2;
+	}
+	catch (string msg) {
+		cout << "Error msg :" << msg << endl;
+	}
 }
