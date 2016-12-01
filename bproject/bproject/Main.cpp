@@ -1,20 +1,137 @@
 #pragma once
+#include <iostream>
+#include <string>
+#include <vector>
+#include <list>
+#include <map>
+using namespace std;
 
+//Chapter 12
+
+//STL-vector
+void STL_vector() {
+
+	vector<int> v;
+
+	v.push_back(10);
+	v.push_back(20);
+	v.push_back(30);
+	v.insert(v.begin(), 40);
+	v.insert(v.end(), 50);
+
+	for (int i = 0; i < v.size(); i++)
+		cout << v[i] << endl;
+
+	cout << "access index at 1 : " << v.at(1) << endl;
+
+	v.erase(v.begin());
+	v.erase(v.end() - 1);
+
+	vector<int>::iterator iter = v.begin();
+
+	cout << "access index at 1 with iterator : " << iter[1] << endl;
+
+	while (iter != v.end()) {
+		cout << *iter << endl;
+		iter++;
+	}
+}
+
+//STL-list
+void dump(list<string> &l) {
+	list<string>::iterator iter = l.begin();
+
+	while (iter != l.end()) {
+		cout << *iter << endl;
+		iter++;
+	}
+}
+void STL_list() {
+	list<string> names;
+	names.insert(names.begin(), "Konkuk");
+	names.insert(names.end(), "University");
+	names.insert(names.end(), "SCLAB");
+	names.insert(names.end(), "CSY");
+	dump(names);
+	cout << "===" << endl;
+	names.reverse();
+	dump(names);
+}
+
+//STL-map
+void STL_map_1() {
+	map<string, int> m;
+
+	m["seoul"] = 100;
+	m["daegu"] = 120;
+	m["busan"] = 200;
+
+	cout << "Train to Seoul = " << m["seoul"] << "$" << endl;
+	cout << "Train to Daegu = " << m["daegu"] << "$" << endl;
+	cout << "Train to Busan = " << m["busan"] << "$" << endl;
+}
+
+class Word {
+private:
+	string word;
+public:
+	Word(string word) {
+		this->word = word;
+	}
+	string getWord() {
+		return this->word;
+	}
+};
+void STL_map_2() {
+	map<char, list<Word>> m;
+
+	list<Word> aList;
+	list<Word> bList;
+
+	aList.push_back(Word("apple"));
+	aList.push_back(Word("avoid"));
+	aList.push_back(Word("appear"));
+
+	bList.push_back(Word("bread"));
+	bList.push_back(Word("bring"));
+	bList.push_back(Word("bow"));
+
+	m['a'] = aList;
+	m['b'] = bList;
+
+	map<char, list<Word>>::const_iterator iter = m.begin();
+
+	while (iter != m.end()) {
+		cout << iter->first << ":" << endl;
+
+		list<Word> temp = iter->second;
+		list<Word>::const_iterator iter_list = temp.begin();
+
+		while (iter_list != temp.end()) {
+			Word word = *iter_list;
+			cout << word.getWord() << ", ";
+			iter_list++;
+		}
+		cout << "\n===" << endl;
+		iter++;
+	}
+}
+
+void main()
+{
+	//STL_vector();
+	//STL_list();
+	//STL_map_1();
+	//STL_map_2();
+}
 //Chapter 10
 /*
 #include <iostream>
 #include <process.h>
 #include <windows.h>
 #include "MiniGame.cpp"
-*/
-
-#include "Frame.h"
-#include <string>
-#include "ExArray.h"
-using namespace std;
 
 //Thread
-/*
 unsigned int __stdcall mythread(void*)
 {
 	int i = 0;
@@ -50,10 +167,8 @@ unsigned int __stdcall keyEvent(void*)
 	}
 	return 0;
 }
-*/
 
 // MiniGame
-/*
 Game* game = new Game();
 unsigned int __stdcall mythread(void*)
 {
@@ -91,10 +206,16 @@ int main()
 	CloseHandle(handleA);
 	CloseHandle(handleB);
 }
+
 */
+//Chapter 11
+/*
+#include "Frame.h"
+#include <string>
+#include "ExArray.h"
+using namespace std;
 
 //Frame.h
-/*
 void main() {
 	try {
 		Frame *f1 = new Frame;
@@ -107,8 +228,6 @@ void main() {
 		cout << "Error msg :" << msg << endl;
 	}
 }
-*/
-
 
 template <typename T>
 void mySwap(T& num1, T& num2) {
@@ -146,3 +265,5 @@ void main() {
 	arr1.printData();
 	arr4.printData();
 }
+
+*/
